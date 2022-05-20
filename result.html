@@ -10592,9 +10592,16 @@
                         <div class="c-span6">
                             <div class="op-bk-polysemy-imgWrap OP_LOG_BTN"
                                  data-url="http://www.baidu.com/link?url=2UyZke3nX7z-repkdOautH7KLfKj9p1yZ5vhXZS6MPUgjxLhX8hTtLWxAiP9cntEXLv-w2NY7TKgyxtv37yF_1wt1DVZFW4RfVGNdfSzLogHmg-zxaaPkfqcfcGrQrrY">
-                                <div class="c-img c-img6"
+                                <div class="c-img c-img6" id="video"
                                      style="height: 91px; background: url(images/乖乖小洪.jpg) no-repeat center center; background-size: cover;">
                                 </div>
+                                <script>
+                                    var video = document.getElementById("video");
+                                    video.onclick = function()
+                                    {
+                                        window.open("video.html");
+                                    }
+                                </script>
                                 <i class="op-bk-polysemy-icon" style="top:25.5px"></i>
                                 <div class="op-bk-polysemy-logo"></div>
                             </div>

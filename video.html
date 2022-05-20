@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title></title>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            html,body,.father{
+                height: 100%;
+                width: 100%
+                position: relative;
+                background: url(images/260.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .child video{
+                position: absolute;
+                left: 50%;
+                top: 420px;
+                transform: translateX(-50%) translateY(-50%);
+                width: 460px;
+                height: 830px;
+                border-radius: 20px;
+                border: 1px solid pink;
+            }
+                .video::-webkit-media-controls-play-button {
+                        display: none;
+                }
+                /* 隐藏video 进度条 */
+                .video::-webkit-media-controls-timeline {
+                        display: none;
+                }
+                /* 隐藏video 观看的当前时间 */
+                .video::-webkit-media-controls-current-time-display{
+                        display: none;            
+                }
+                /* 隐藏video 剩余时间 */
+                .video::-webkit-media-controls-time-remaining-display {
+                        display: none;            
+                }
+                /* 隐藏video 音量按钮 */
+                .video::-webkit-media-controls-mute-button {
+                        display: none;            
+                }
+                .video::-webkit-media-controls-toggle-closed-captions-button {
+                        display: none;            
+                }
+                /* 隐藏video 音量的控制条 */
+                .video::-webkit-media-controls-volume-slider {
+                        display: none;            
+                }
+                
+                .video::-moz-media-controls-play-button {
+                        display: none;
+                }
+                /* 隐藏video 进度条 */
+                .video::-moz-media-controls-timeline {
+                        display: none;
+                }
+                /* 隐藏video 观看的当前时间 */
+                .video::-moz-media-controls-current-time-display{
+                        display: none;            
+                }
+                /* 隐藏video 剩余时间 */
+                .video::-moz-media-controls-time-remaining-display {
+                        display: none;            
+                }
+                /* 隐藏video 音量按钮 */
+                .video::-moz-media-controls-mute-button {
+                        display: none;            
+                }
+                .video::-moz-media-controls-toggle-closed-captions-button {
+                        display: none;            
+                }
+                /* 隐藏video 音量的控制条 */
+                .video::-moz-media-controls-volume-slider {
+                        display: none;            
+                }
+
+                .video::-o-media-controls-play-button {
+                        display: none;
+                }
+                /* 隐藏video 进度条 */
+                .video::-o-media-controls-timeline {
+                        display: none;
+                }
+                /* 隐藏video 观看的当前时间 */
+                .video::-o-media-controls-current-time-display{
+                        display: none;            
+                }
+                /* 隐藏video 剩余时间 */
+                .video::-o-media-controls-time-remaining-display {
+                        display: none;            
+                }
+                /* 隐藏video 音量按钮 */
+                .video::-o-media-controls-mute-button {
+                        display: none;            
+                }
+                .video::-o-media-controls-toggle-closed-captions-button {
+                        display: none;            
+                }
+                /* 隐藏video 音量的控制条 */
+                .video::-o-media-controls-volume-slider {
+                        display: none;            
+                }
+                .snow{
+            background: white;
+            position: absolute;
+            width:0px;
+            height: 0px;
+            border-radius: 50%;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="father">
+            <div class="child">
+                <video controls class="video">
+                <source src="images/video.mp4">
+                <embed src="images/video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <script>
+            //获取屏幕宽高
+            var windowWidth = window.screen.width;
+            var windowHeight = window.screen.height;
+     
+            //创建雪花
+            function createSnow(){
+                var left = 0;
+                var top = 0;
+     
+                //定义一个初始化随机数,使雪花在屏幕中
+                var left_random = Math.random() * windowWidth;
+                var top_random = Math.random()* windowHeight;
+                var div = document.createElement('div');
+                div.innerText = "❉";
+                div.style.color = "white";
+                div.className = 'snow';
+                div.classList.add("snow");
+                div.style.transform = 'scale('+(Math.random())+')'
+     
+                document.body.appendChild(div);
+     
+                //雪花飘落
+                setInterval(function () {
+     
+                    div.style.left = left_random + left +'px';
+                    div.style.top = top_random + top +'px'
+                    left += 0.2;
+                    top += 0.2;
+     
+                    //如果雪花跑到屏幕外面了,让雪花重新返回屏幕顶部
+                    if(left_random + left >= windowWidth){
+                        left_random = Math.random();
+                        left = 0;
+                    }
+     
+                    if(top_random + top >= windowHeight){
+                        top_random = Math.random();
+                        top = 0;
+                    }
+                },10)
+     
+            }
+            for(var i = 0 ; i < 200 ; i++){
+                createSnow()
+            }
+        </script>
+    </body>
+</html>
